@@ -53,7 +53,7 @@
             }
         })
     }
-    // 因為用ajax不知道e結果什麼時候回來，所以無法chkacc()直接取用來判斷，這裡直接複製一個在註冊前做判斷
+    // 因為用ajax不知道e結果什麼時候回來，所以無法chkacc()直接呼叫取用來判斷，從這裡直接複製一個在註冊前做判斷是否帳號已使用
     function chkacc() {
         let acc = $("#acc").val()
         $.get("./api/chk_acc.php",{acc},(res)=>{

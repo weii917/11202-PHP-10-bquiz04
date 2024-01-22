@@ -9,10 +9,11 @@
     </tr>
     <tr>
         <td class="tt">密碼</td>
-        <td class="pp"><input type="text" name="pw" id="pw"></td>
+        <td class="pp"><input type="password" name="pw" id="pw"></td>
     </tr>
     <tr>
         <td class="tt">驗證碼</td>
+        <!-- 將計算結果存放在$_SESSION['acc'] -->
         <td class="pp">
             <?php
             $a=rand(10,99);

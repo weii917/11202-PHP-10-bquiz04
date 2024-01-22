@@ -32,6 +32,7 @@
     <button>註冊</button>
     <button>重置</button>
 </div>
+<!-- 檢測帳號的function ， 將acc的value送到api撈出資料庫計算筆數，echo的結果回到res，在此做判斷==1代表與資料庫有符合一筆帳號 -->
 <script>
     function chkacc() {
         let acc = $("#acc").val()

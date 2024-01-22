@@ -26,7 +26,8 @@
                 <a href="?do=login">會員登入</a> |
                 <a href="?do=admin">管理登入</a>
             </div>
-            情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
+            <marquee> 年終特賣會開跑了&nbsp; 情人節特惠活動 &nbsp; </marquee>
+
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
@@ -38,18 +39,18 @@
             </span>
         </div>
         <div id="right">
-            <?php 
-                $do=$_GET['do']??'main';
-                $file="./front/{$do}.php";
-                if(file_exists($file)){
-                    include $file;
-                }else{
-                    include "./front/main.php";
-                }
+            <?php
+            $do = $_GET['do'] ?? 'main';
+            $file = "./front/{$do}.php";
+            if (file_exists($file)) {
+                include $file;
+            } else {
+                include "./front/main.php";
+            }
             ?>
         </div>
         <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
-           <?=$Bottom->find(1)['bottom'];?> </div>
+            <?= $Bottom->find(1)['bottom']; ?> </div>
     </div>
     <script src="./js/jquery-3.4.1.min.js"></script>
 </body>

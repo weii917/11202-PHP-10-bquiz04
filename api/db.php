@@ -142,6 +142,6 @@ function to($url){
 }
 
 
-
+$Bottom=new DB('bottom');
 
 ?>

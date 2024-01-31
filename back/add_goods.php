@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <th class="tt ct">商品圖片</th>
-            <td class="pp"><input type="text" name="img" value=""></td>
+            <td class="pp"><input type="file" name="img" value=""></td>
         </tr>
         <tr>
             <th class="tt ct">商品介紹</th>
@@ -50,6 +50,7 @@
 </form>
 
 <script>
+// 初始取得大分類的選項，傳回會得大分類的big_id，執行改mid參數，getTypes的中分類
 getTypes('big',0)
 
 $("#big").on("change",function(){

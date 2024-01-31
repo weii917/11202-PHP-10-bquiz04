@@ -1,10 +1,9 @@
-<!-- table.all>(tr.tt>td+td.ct>button*2)+(tr.pp.ct>td+td>button*2) -->
 <h2 class="ct">商品分類</h2>
 <div class="ct">
     新增大分類 <input type="text" name="big" id="big"> <button>新增</button>
 </div>
 <div class="ct">
-    新增中分類
+    新增中分類 
     <select name="big" id="bigs"></select>
     <input type="text" name="mid" id="mid"><button>新增</button>
 </div>
@@ -21,7 +20,7 @@
         <td>女用皮件</td>
         <td>
             <button>修改</button>
-            <button>刪除</button>
+            <button>刪除</button>            
         </td>
     </tr>
 </table>
@@ -41,7 +40,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>
+        <td width="40%">
             <button>修改</button>
             <button>刪除</button>
             <button>上架</button>

@@ -41,6 +41,16 @@
 <script>
     getTypes(0)
 
+    function edit(dom,id){
+        let name=prompt("請輸入你要修改的分類名稱:",`${$(dom).parent().prev().text()}`)
+        if(name!=null){
+            $.post("./api/save_type.php",{name,id},()=>{
+                $(dom).parent().prev().text(name)
+                // location.reload();
+            })
+        }
+    }
+
     // 取得大分類透過後台依序撈出big_id為0的資料，放進 select選項裡
     function getTypes(big_id) {
         $.get("./api/get_types.php", {

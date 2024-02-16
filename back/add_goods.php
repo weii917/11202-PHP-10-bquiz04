@@ -45,7 +45,7 @@
     <div class="ct">
         <input type="submit" value="新增">
         <input type="reset" value="重置">
-        <input type="button" value="返回">
+        <input type="button" value="返回" onclick="location.href='?do=th'">
     </div>
 </form>
 

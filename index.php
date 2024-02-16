@@ -50,22 +50,23 @@
             <marquee> 年終特賣會開跑了&nbsp; 情人節特惠活動 &nbsp; </marquee>
 
         </div>
+        <!--首頁顯示分類選單，在分類選單中顯示商品數量， 在分類選單連結加上分類的id -->
         <div id="left" class="ct">
             <div style="min-height:400px;">
-                <a href="?type=0">全部商品(<?=$Goods->count(['sh'=>1]);?>)</a>
+                <a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
                 <?php
                 $bigs = $Type->all(['big_id' => 0]);
                 foreach ($bigs as $big) {
                 ?>
                     <div class="ww">
-                        <a href="?type=<?=$big['id'];?>"><?= $big['name']; ?>(<?=$Goods->count(['sh'=>1,'big'=>$big['id']]);?>)</a>
+                        <a href="?type=<?= $big['id']; ?>"><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
                         <div class="s">
                             <?php
                             if ($Type->count(["big_id" => $big['id']]) > 0) {
                                 $mids = $Type->all(["big_id" => $big['id']]);
                                 foreach ($mids as $mid) {
                             ?>
-                                    <a href="?type=<?=$mid['id'];?>"><?= $mid['name']; ?>(<?=$Goods->count(['sh'=>1,'mid'=>$mid['id']]);?>)</a>
+                                    <a href="?type=<?= $mid['id']; ?>"><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]); ?>)</a>
                             <?php
                                 }
                             }

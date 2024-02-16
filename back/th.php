@@ -26,13 +26,13 @@
         $mids = $Type->all(['big_id' => $big['id']]);
         foreach ($mids as $mid) {
         ?>
-        <tr class="pp ct">
-            <td><?=$mid['name']?></td>
-            <td>
-                <button onclick="edit(this,<?=$mid['id'];?>)">修改</button>
-                <button onclick="del('type',<?=$mid['id'];?>)">刪除</button>
-            </td>
-        </tr>
+            <tr class="pp ct">
+                <td><?= $mid['name'] ?></td>
+                <td>
+                    <button onclick="edit(this,<?= $mid['id']; ?>)">修改</button>
+                    <button onclick="del('type',<?= $mid['id']; ?>)">刪除</button>
+                </td>
+            </tr>
     <?php
         }
     }
@@ -41,10 +41,13 @@
 <script>
     getTypes(0)
 
-    function edit(dom,id){
-        let name=prompt("請輸入你要修改的分類名稱:",`${$(dom).parent().prev().text()}`)
-        if(name!=null){
-            $.post("./api/save_type.php",{name,id},()=>{
+    function edit(dom, id) {
+        let name = prompt("請輸入你要修改的分類名稱:", `${$(dom).parent().prev().text()}`)
+        if (name != null) {
+            $.post("./api/save_type.php", {
+                name,
+                id
+            }, () => {
                 $(dom).parent().prev().text(name)
                 // location.reload();
             })
@@ -92,16 +95,23 @@
         <td>狀態</td>
         <td>操作</td>
     </tr>
-    <tr class="pp">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td width="40%">
-            <button>修改</button>
-            <button>刪除</button>
-            <button>上架</button>
-            <button>下架</button>
-        </td>
-    </tr>
+    <?php
+    $goods = $Goods->all();
+    foreach ($goods as $good) {
+    ?>
+        <tr class="pp">
+            <td><?=$good['no'];?></td>
+            <td><?=$good['name'];?></td>
+            <td><?=$good['stock'];?></td>
+            <td><?=($good['sh']==1)?"上架":"下架";?></td>
+            <td width="40%">
+                <button>修改</button>
+                <button>刪除</button>
+                <button>上架</button>
+                <button>下架</button>
+            </td>
+        </tr>
+    <?php
+    }
+    ?>
 </table>

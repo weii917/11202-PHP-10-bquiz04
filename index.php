@@ -8,7 +8,7 @@
 
     <title>┌精品電子商務網站」</title>
     <link href="./css/css.css" rel="stylesheet" type="text/css">
-    <script src="./js/jquery-3.4.1.min.js"></script>   
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/js.js"></script>
 </head>
 
@@ -52,7 +52,32 @@
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
+                <a>全部商品</a>
+                <?php
+                $bigs = $Type->all(['big_id' => 0]);
+                foreach ($bigs as $big) {
+                ?>
+                    <div class="ww">
+                        <a href=""><?= $big['name']; ?></a>
+                        <div class="s">
+                            <?php
+                            if ($Type->count(["big_id" => $big['id']]) > 0) {
+                                $mids = $Type->all(["big_id" => $big['id']]);
+                                foreach ($mids as $mid) {
+                            ?>
+                                    <a href=""><?= $mid['name']; ?></a>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                <?php
+                }
+                ?>
             </div>
+
             <span>
                 <div>進站總人數</div>
                 <div style="color:#f00; font-size:28px;">

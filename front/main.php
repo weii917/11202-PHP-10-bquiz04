@@ -2,29 +2,42 @@
 
 $type = $_GET['type'] ?? 0;
 $nav = '';
+$goods = null;
 // 如果type 為0，全部商品，如果big_id為0顯示大分類
 if ($type == 0) {
     $nav = "全部商品";
-    $goods=$Goods->all(['sh'=>1]);
+    $goods = $Goods->all(['sh' => 1]);
 } else {
     $t = $Type->find($type);
     if ($t['big_id'] == 0) {
         $nav = $t['name'];
-        $goods=$Goods->all(['sh'=>1,'big'=>$t['id']]);
+        $goods = $Goods->all(['sh' => 1, 'big' => $t['id']]);
     } else {
         $b = $Type->find($t['big_id']);
         $nav = $b['name'] . " > " . $t['name'];
-        $goods=$Goods->all(['sh'=>1,'mid'=>$t['id']]);
+        $goods = $Goods->all(['sh' => 1, 'mid' => $t['id']]);
     }
 }
 
 
 ?>
-<h2><?=$nav;?></h2>
+<h2><?= $nav; ?></h2>
 
 <?php
-foreach($goods as $good){
-    echo $good['name'];
-    echo "<br>";
+foreach ($goods as $good) {
+?>
+    <div class="item">
+        <div class="img">
+            <img src="./img/<?=$good['img'];?>" style="width:200px;height:150px;">
+        </div>
+        <div class="info">
+            <div class="ct tt"><?=$good['name'];?></div>
+            <div>價錢:<?=$good['price'];?></div>
+            <div>規格:<?=$good['spec'];?></div>
+            <div>簡介:<?=$good['intro'];?></div>
+
+        </div>
+    </div>
+<?php
 }
 ?>

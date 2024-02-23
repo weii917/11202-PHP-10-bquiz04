@@ -149,3 +149,5 @@ $Type=new DB('type');
 $Goods=new DB('goods');
 
 ?>
+
+test

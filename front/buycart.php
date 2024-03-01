@@ -25,7 +25,7 @@ if(empty($_SESSION['cart'])){
         <td>小計</td>
         <td>刪除</td>
     </tr>
-<?php
+    <?php
 foreach($_SESSION['cart'] as $id => $qt){
     $goods=$Goods->find($id);
 ?>
@@ -38,7 +38,7 @@ foreach($_SESSION['cart'] as $id => $qt){
         <td><?=$goods['price'] * $qt;?></td>
         <td><img src="./icon/0415.jpg" onclick="delCart(<?=$id;?>)"></td>
     </tr>
-<?php
+    <?php
 }
 ?>
 </table>
@@ -48,9 +48,11 @@ foreach($_SESSION['cart'] as $id => $qt){
 </div>
 
 <script>
-function delCart(id){
-    $.post("./api/del_cart.php",{id},()=>{
-        location.href="?do=buycart";
+function delCart(id) {
+    $.post("./api/del_cart.php", {
+        id
+    }, () => {
+        location.href = "?do=buycart";
     })
 }
 </script>
